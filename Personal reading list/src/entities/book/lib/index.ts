@@ -1,0 +1,4 @@
+import type { UserBook } from '../model/types'
+export function searchLibraryBooks(books:UserBook[],query:string):UserBook[]{const q=query.trim().toLowerCase();return q?books.filter(x=>[x.book.title,...x.book.authors,x.book.isbn??''].join(' ').toLowerCase().includes(q)):books}
+export function filterBooksByShelfAndGenre(books:UserBook[],shelf:string,genre:string):UserBook[]{return books.filter(x=>(shelf==='all'||x.shelf===shelf||(shelf==='favorites'&&x.isFavorite))&&(!genre||x.book.genres.some(g=>g.toLowerCase()===genre.toLowerCase())))}
+export function sortBooks(books:UserBook[],sort:string):UserBook[]{return [...books].sort((a,b)=>sort==='title'?a.book.title.localeCompare(b.book.title):sort==='progress'?b.currentPage/b.book.pageCount-a.currentPage/a.book.pageCount:sort==='rating'?(b.userRating??0)-(a.userRating??0):b.addedAt.localeCompare(a.addedAt))}

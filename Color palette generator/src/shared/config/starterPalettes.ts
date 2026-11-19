@@ -1,0 +1,1 @@
+export const STARTER_COLORS = ['EEE8DF', 'D8A38C', 'B6363F', '87294D', '551B45']

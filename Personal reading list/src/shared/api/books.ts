@@ -1,0 +1,5 @@
+import { useQuery } from '@tanstack/react-query'
+import { searchOpenLibrary, fetchWork } from '../../entities/book/api'
+export const useSearchBooks=(query:string)=>useQuery({queryKey:['search',query],queryFn:()=>searchOpenLibrary(query),enabled:query.trim().length>=2})
+export const useBookDetails=(key:string)=>useQuery({queryKey:['book',key],queryFn:()=>fetchWork(key),enabled:key.length>0})
+export const useGenreBooks=(genre:string)=>useQuery({queryKey:['genre',genre],queryFn:async()=>{const res=await fetch(`https://openlibrary.org/subjects/${genre}.json?limit=20`);if(!res.ok)throw new Error('Не удалось загрузить подборку');const data=await res.json() as {works:{key:string;title:string;authors?:{name:string}[];cover_id?:number}[]};return data.works.map(w=>({id:w.key,title:w.title,authors:w.authors?.map(a=>a.name)??['Неизвестный автор'],coverUrl:w.cover_id?`https://covers.openlibrary.org/b/id/${w.cover_id}-L.jpg`:'',description:'',pageCount:300,genres:[genre.replaceAll('_',' ')]}))},enabled:genre.length>0})

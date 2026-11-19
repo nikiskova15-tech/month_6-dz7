@@ -1,0 +1,1 @@
+export { useGeneratePalette } from './useGeneratePalette'

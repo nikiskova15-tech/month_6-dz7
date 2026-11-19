@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: tabular-nums;
+  background: #0b0f17;
+  color: #f8fafc;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+:root[data-theme="light"] body,
+:root[data-theme="light"] #root,
+:root[data-theme="light"] [class~="bg-[#0b0f17]"],
+:root[data-theme="light"] [class~="bg-[#0b0f17]/95"] {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+:root[data-theme="light"] [class~="bg-[#131a26]"],
+:root[data-theme="light"] [class~="bg-slate-900"],
+:root[data-theme="light"] [class~="bg-slate-900/70"],
+:root[data-theme="light"] [class~="bg-slate-950"],
+:root[data-theme="light"] [class~="bg-slate-950/40"],
+:root[data-theme="light"] [class~="bg-slate-950/60"],
+:root[data-theme="light"] [class~="bg-slate-950/95"] {
+  background-color: #ffffff;
+}
+
+:root[data-theme="light"] [class~="bg-slate-800"] {
+  background-color: #e2e8f0;
+}
+
+:root[data-theme="light"] [class~="border-slate-800"],
+:root[data-theme="light"] [class~="border-slate-700"] {
+  border-color: #cbd5e1;
+}
+
+:root[data-theme="light"] [class~="text-white"],
+:root[data-theme="light"] [class~="text-slate-100"],
+:root[data-theme="light"] [class~="text-slate-200"],
+:root[data-theme="light"] [class~="text-slate-300"] {
+  color: #0f172a;
+}
+
+:root[data-theme="light"] [class~="text-slate-400"],
+:root[data-theme="light"] [class~="text-slate-500"] {
+  color: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 360px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+:focus-visible {
+  outline: 2px solid #34d399;
+  outline-offset: 3px;
+}

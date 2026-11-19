@@ -1,0 +1,6 @@
+import type { ButtonHTMLAttributes, InputHTMLAttributes, HTMLAttributes } from 'react'
+import { cn } from '../lib/cn'
+export function Button({className,...props}:ButtonHTMLAttributes<HTMLButtonElement>){return <button className={cn('rounded-xl px-4 py-2.5 text-sm font-semibold transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 disabled:opacity-50',className)} {...props}/>}
+export function Input({className,...props}:InputHTMLAttributes<HTMLInputElement>){return <input className={cn('w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-amber-600 focus:ring-2 focus:ring-amber-100',className)} {...props}/>}
+export function ProgressBar({value}:{value:number}){return <div className="h-2 overflow-hidden rounded-full bg-stone-100"><div className="h-full rounded-full bg-amber-700 transition-all duration-500" style={{width:`${Math.max(0,Math.min(100,value))}%`}}/></div>}
+export function Panel({className,...props}:HTMLAttributes<HTMLElement>){return <section className={cn('rounded-3xl border border-stone-100 bg-white p-5 shadow-[0_8px_28px_rgba(70,48,25,.045)]',className)} {...props}/>}
